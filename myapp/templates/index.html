@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+    <h2 class="bg-primary text-dark text-center jumbotron text-uppercase p-1">Týmy</h2>
+    </div>
+    <div class="row">
+
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Název</th>
+      <th scope="col">hráči</th>
+      <th scope="col">Trenéři</th>
+      <th scope="col">Soutěž</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tym in num_tym %}
+    <tr>
+        <td>{{ tym.nazev }}</td>
+    <td>
+        {% for hrac in tym.hraci.all %}
+                    <a href="{% url 'hrac_detail' hrac.id %} ">{{ hrac }} </a>
+                {% endfor %}
+    </td>
+     <td>
+        {% for trener in tym.Treneri.all %}
+                    <a href="{% url 'trener_detail' trener.id %} ">{{ trener }} </a>
+                {% endfor %}
+    </td>
+    <td>{{ tym.Soutezi }}</td>
+
+    </tr>
+
+
+{% endfor %}
+
+    </tbody>
+    </table>
+</div>
+     <div class="col-lg-4 mt-3 mb-3">
+            <h2 class="bg-primary text-dark  text-center jumbotron text-uppercase p-1"> Přehled soutěží</h2>
+            {% for s in num_soutez %}
+            <div class="row mb-3">
+             <p>  {{ s.druh }}</p>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

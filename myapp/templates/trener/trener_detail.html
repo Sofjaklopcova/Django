@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ trener }}
+{% endblock %}
+
+{% block content %}
+    <h2  class="text-center bg-primary text-dark jumbotron text-uppercase p-1">{{ trener.jmeno }} <b>{{ trener.prijmeni }}</b></h2>
+    <div class="row p-3 text-black">
+        <div class="col-lg-4">
+            <img src="{{ trener.fotografie.url }}"
+                 class="img-fluid rounded"
+                 alt="{{ trener.jmeno }} {{ trener.prijmeni }}">
+
+        </div>
+        <div class="col-lg-4">
+            <p class="font-italic">{{ trener.jmeno }} {{ trener.prijmeni }}</p>
+            <p>Datum narození: <b>{{ trener.narozeni }}</b></p>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Seznam Trenérů
+{% endblock %}
+
+{% block content %}
+    <h2 class="bg-primary text-dark text-center jumbotron text-uppercase p-1" >seznam trenérů</h2>
+    <div class="row bg-muted p-3">
+    {% for trener in treneri %}
+        <div class="col-lg-2 col-md-3">
+            <img src="{{ trener.fotografie.url }}"
+                 class="img-fluid rounded"
+                 alt="{{ trener.jmeno }} {{ trener.prijmeni }}">
+            <p><a href="{% url 'trener_detail' trener.id %}">{{ trener.jmeno }} {{ trener.prijmeni }}</a></p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

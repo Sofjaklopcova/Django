@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ hrac }}
+{% endblock %}
+
+{% block content %}
+    <h2 class="text-center bg-primary text-dark jumbotron text-uppercase p-1 ">{{ hrac.jmeno }} <b>{{ hrac.prijmeni }}</b></h2>
+    <div class="row p-3 text-black">
+        <div class="col-lg-4">
+            <img src="{{ hrac.fotografie.url }}"
+                 class="img-fluid rounded "
+                 alt="{{ hrac.jmeno }} {{ hrac.prijmeni }}">
+
+        </div>
+        <div class="col-lg-4">
+             <p class="font-italic">{{ hrac.jmeno }} {{ hrac.prijmeni }}</p>
+            <p>Datum narození: <b>{{ hrac.narozeni }}</b></p>
+            <p>Je v týmu: {% for tym in hrac.tym_set.all %}
+                <li>{{ tym }}</li>
+            {% endfor %}</p>
+        </div>
+
+    </div>
+{% endblock %}

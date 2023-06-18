@@ -1,0 +1,3 @@
+superuživatel: admin
+heslo: admin
+
